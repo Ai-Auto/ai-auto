@@ -60,6 +60,7 @@ var langs =
                      ['cmn-Hant-TW', '中文 (台灣)'],
                      ['yue-Hant-HK', '粵語 (香港)']],
  ['日本語',           ['ja-JP']],
+ ['Thai',           ['th-TH']],
  ['Lingua latīna',   ['la']]];
 for (var i = 0; i < langs.length; i++) {
   select_language.options[i] = new Option(langs[i][0], i);
@@ -129,7 +130,8 @@ if (!('webkitSpeechRecognition' in window)) {
     if (window.getSelection) {
       window.getSelection().removeAllRanges();
       var range = document.createRange();
-      range.selectNode(document.getElementById('final_span')); // /////// // //// / // / / / / / / // /  /
+      range.selectNode(document.getElementById('final_span'));
+       // /////// // //// / // / / / / / / // /  /
       window.getSelection().addRange(range);
     }
     if (create_email) {
@@ -149,9 +151,12 @@ if (!('webkitSpeechRecognition' in window)) {
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
+
     if (final_transcript || interim_transcript) {
       showButtons('inline-block');
     }
+
+
   };
 }
 function upgrade() {
@@ -175,27 +180,6 @@ function createEmail() {
   var subject = encodeURI(final_transcript.substring(0, n));
   var body = encodeURI(final_transcript.substring(n + 1));
   window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
-}
-function copyButton() {
-  if (recognizing) {
-    recognizing = false;
-    recognition.stop();
-  }
-  copy_button.style.display = 'none';
-  copy_info.style.display = 'inline-block';
-  showInfo('');
-}
-function emailButton() {
-  if (recognizing) {
-    create_email = true;
-    recognizing = false;
-    recognition.stop();
-  } else {
-    createEmail();
-  }
-  email_button.style.display = 'none';
-  email_info.style.display = 'inline-block';
-  showInfo('');
 }
 function startButton(event) {
   if (recognizing) {
@@ -231,8 +215,6 @@ function showButtons(style) {
     return;
   }
   current_style = style;
-  copy_button.style.display = style;
-  email_button.style.display = style;
-  copy_info.style.display = 'none';
-  email_info.style.display = 'none';
+
+
 }

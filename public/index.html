@@ -6,10 +6,11 @@
   <link rel="stylesheet" href="css.css">
   <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="ng.js"></script>
 </head>
 <body ng-controller="TodoListController as app">
-
+{{app.test}}
 
 <div id="info">
   <p id="info_start"></p>
@@ -26,21 +27,19 @@
     <img id="start_img" src="img/mic.gif" alt="Start"></button>
 </div>
 <div id="results">
-  <span id="final_span" class="final"></span>
+  <span id="final_span"  class="final"></span>
   <span id="interim_span" class="interim"></span>
+
   <p>
 </div>
 <div class="center">
   <div class="sidebyside" style="text-align:right">
-    <button id="copy_button" class="button" onclick="copyButton()">
-      Copy and Paste</button>
-    <div id="copy_info" class="info">
-      Press Control-C to copy text.<br>(Command-C on Mac.)
+
+
     </div>
   </div>
   <div class="sidebyside">
-    <button id="email_button" class="button" onclick="emailButton()">
-      Create Email</button>
+
     <div id="email_info" class="info">
       Text sent to default email application.<br>
       (See chrome://settings/handlers to change.)

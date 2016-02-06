@@ -1,10 +1,5 @@
-* {
-  font-family: Verdana, Arial, sans-serif;
-}
-a:link {
-  color:#000;
-  text-decoration: none;
-}
+
+
 a:visited {
   color:#000;
 }
@@ -25,26 +20,17 @@ a:hover {
   text-shadow: 1px 1px 1px #076bd2;
   letter-spacing: normal;
 }
-.center {
-  padding: 10px;
-  text-align: center;
-}
+
 .final {
   color: black;
   padding-right: 3px;
 }
-.interim {
-  color: gray;
-}
+
 .info {
   font-size: 14px;
   text-align: center;
   color: #777;
   display: none;
-}
-.right {
-  margin-left: 70px;
-  float: left;
 }
 .sidebyside {
   display: inline-block;
